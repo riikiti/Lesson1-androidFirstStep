@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
+/*
     public void Sum(View view) {
         EditText tA= findViewById(R.id.var1);
         EditText tB= findViewById(R.id.var2);
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tRes = findViewById(R.id.res1);
         tRes.setText(""+(a+b));
     }
-
+*/
     public void Slay(View view){
 
         int n = 3;
@@ -32,41 +32,48 @@ public class MainActivity extends AppCompatActivity {
         double[] b = new double[100];
 //todo разобраться с типами данных
         EditText tA1= findViewById(R.id.var1);
-        int var1 = Double.parseInt(tA1.getText().toString());
-        A[0][0] = var1.nextDouble();
+        double var1 = Double.parseDouble(tA1.getText().toString());;
+        A[0][0] = var1;
         EditText tA2= findViewById(R.id.var2);
-        int var2 = Integer.parseInt(tA2.getText().toString());
-        A[0][1] = var2.nextDouble();
+        double var2 = Double.parseDouble(tA2.getText().toString());
+        A[0][1] = var2;
         EditText tA3= findViewById(R.id.var3);
-        int var3 = Integer.parseInt(tA3.getText().toString());
-        A[0][2] = var3.nextDouble();
+        double var3 = Double.parseDouble(tA3.getText().toString());
+        A[0][2] = var3;
         EditText tA4= findViewById(R.id.var4);
-        int var4 = Integer.parseInt(tA4.getText().toString());
-        b[0] = var4.nextDouble();
+        double var4 = Double.parseDouble(tA4.getText().toString());
+        b[0] = var4;
 
 
 
         EditText tA5= findViewById(R.id.var5);
-        int var5 = Integer.parseInt(tA5.getText().toString());
-        A[1][0] = var5.nextDouble();
+        double var5 = Double.parseDouble(tA5.getText().toString());
+        A[1][0] = var5;
         EditText tA6= findViewById(R.id.var6);
-        int var6 = Integer.parseInt(tA6.getText().toString());
-        A[1][1] = var6.nextDouble();
+        double var6 = Double.parseDouble(tA6.getText().toString());
+        A[1][1] = var6;
         EditText tA7= findViewById(R.id.var7);
-        int var7 = Integer.parseInt(tA7.getText().toString());
-        A[1][2] = var7.nextDouble();
+        double var7 = Double.parseDouble(tA7.getText().toString());
+        A[1][2] = var7;
         EditText tA8= findViewById(R.id.var8);
-        int var8 = Integer.parseInt(tA8.getText().toString());
-        b[1] = var8.nextDouble();
+        double var8 = Double.parseDouble(tA8.getText().toString());
+        b[1] = var8;
+
+
+
 
         EditText tA9= findViewById(R.id.var9);
-        int var9 = Integer.parseInt(tA9.getText().toString());
-        A[2][0] = var9.nextDouble();
-        A[2][1] = s.nextDouble();
-        A[2][2] = s.nextDouble();
-
-        b[i] = s.nextDouble();
-
+        double var9 = Double.parseDouble(tA9.getText().toString());
+        A[2][0] = var9;
+        EditText tA10= findViewById(R.id.var10);
+        double var10 = Double.parseDouble(tA10.getText().toString());
+        A[2][1] = var10;
+        EditText tA11= findViewById(R.id.var11);
+        double var11 = Double.parseDouble(tA11.getText().toString());
+        A[2][2] = var11;
+        EditText tA12= findViewById(R.id.var12);
+        double var12 = Double.parseDouble(tA12.getText().toString());
+        b[2] = var12;
 
         /* Метод Гаусса */
 
@@ -83,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
             double   t    = b[p]; b[p] = b[max]; b[max] = t;
 
             if (Math.abs(A[p][p]) <= 1e-10) {
-                System.out.println("NO");
+                TextView TextRes = findViewById(R.id.TextRes);
+                TextRes.setText("NO");
                 return;
             }
 
@@ -110,12 +118,17 @@ public class MainActivity extends AppCompatActivity {
         /* Вывод результатов */
 
         if (n < m) {
-            System.out.print("INF");
+            TextView TextRes = findViewById(R.id.TextRes);
+            TextRes.setText("INF");
         } else {
-            System.out.println("YES");
-            for (int i = 0; i < N; i++) {
-                System.out.print(x[i] + " ");
-            }
+            TextView TextRes = findViewById(R.id.TextRes);
+            TextRes.setText("YES");
+            TextView Res = findViewById(R.id.res);
+            Res.setText("" + x[0]);
+            TextView Res1 = findViewById(R.id.res1);
+            Res1.setText("" + x[1]);
+            TextView Res2 = findViewById(R.id.res2);
+            Res2.setText("" + x[2]);
         }
     }
 }
